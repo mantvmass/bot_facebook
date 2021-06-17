@@ -7,7 +7,7 @@ from weather import key1, key2, key3, key4, key5, key6, key7, key8, key9, key10,
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = "EAAE1pFVtXJ4BAGZCEupI4Yv05jROtMfP2zF8If1RrxUn43hlpXZAJ5ZCRfqNsiAQ74SZCvTWDCkbMRgWDWRkayiF7C3hs5rJvKBC8HzSReUTZAC6XVfY247yd9M3UXpPuyg21uf09AqCIyNeQEQKALV0cpeBCKaoAprWPap7DfyqYWUg7tNCfsL3bYC7HevQlaB1RicypFgZDZD"
+ACCESS_TOKEN = "your token"
 VERIFY_TOKEN = "hellobot"
 bot = Bot(ACCESS_TOKEN)
 
@@ -29,7 +29,7 @@ def bot_messenger():
                 if data.get('message'):
                     
                     recipient_id = data['recipient']['id']
-                    #recipient_id = data['sender']['id']
+                    recipient_id = data['sender']['id']
                     #sender_id = data['sender']['id']
                     #sender_id = data['recipient']['id']
 
