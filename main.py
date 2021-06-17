@@ -29,7 +29,7 @@ def bot_messenger():
                 if data.get('message'):
                     
                     recipient_id = data['recipient']['id']
-                    recipient_id = data['sender']['id']
+                    #recipient_id = data['sender']['id']
                     #sender_id = data['sender']['id']
                     #sender_id = data['recipient']['id']
 
