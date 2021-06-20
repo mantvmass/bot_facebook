@@ -17,8 +17,8 @@ from weather import key1, key2, key3, key4, key5, key6, key7, key8, key9, key10,
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = "EAARdeiwbtZBsBAJZAKAHDxSvMhR3kEZAXnM9dTo5PvsgQaYwABL1rSsR2BSfyin9zfvCioUZAsigfDxLZCwAfwWIiAU264JZB3K7Jx1am17RZBMpX60A7ZACbPmrLpbw4gUtjl6cSrGOOorqqwvpdZABp03encS6fvsFZAHgRzxZAcgRXZCEMnEQXOvZB3lQUXWF4iINgmmE8QaoqOgZDZD"
-VERIFY_TOKEN = "1"
+ACCESS_TOKEN = "your token"
+VERIFY_TOKEN = "set verify token"
 bot = Bot(ACCESS_TOKEN)
 
 
