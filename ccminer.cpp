@@ -9,10 +9,10 @@
  * any later version.  See COPYING for more details.
  * 
  * Version Mobile Mining
- *  [ รายละเอียดการแก้ไข ]
- *  - Developed by phumin-dev [ วันที่เริ่มพัฒนา 30/06/2021 ]
- *  - แก้ไขให้สามารถใช้งานได้ในCPUมือถือที่ไม่รองรับ
- *  - ลดขนาดไฟล์
+ *  [ ?????????????????? ]
+ *  - Developed by phumin-dev [ ???????????????? 30/06/2021 ]
+ *  - ?????????????????????????CPU??????????????????
+ *  - ??????????
  *  Github: https://github.com/mantvmass
  */
 
@@ -243,18 +243,78 @@ int cryptonight_fork = 1;
 
 static char const usage[] = "\
 Usage: " PROGRAM_NAME " [OPTIONS]\n\
-[ รายละเอียดการแก้ไข ]
- - Developed by phumin-dev [ วันที่เริ่มพัฒนา 30/06/2021 ]
- - แก้ไขให้สามารถใช้งานได้ในCPUมือถือที่ไม่รองรับ
- - ลดขนาดไฟล์
-Github: https://github.com/mantvmass
 Options:\n\
   -a, --algo=ALGO       specify the hash algorithm to use\n\
-			verus       Veruscoin\n"
+			allium      Garlic double lyra2\n\
+			bastion     Hefty bastion\n\
+			bitcore     Timetravel-10\n\
+			blake       Blake 256 (SFR)\n\
+			blake2s     Blake2-S 256 (NEVA)\n\
+			blakecoin   Fast Blake 256 (8 rounds)\n\
+			bmw         BMW 256\n\
+			cryptolight AEON cryptonight (MEM/2)\n\
+			cryptonight XMR cryptonight v1 (old)\n\
+			c11/flax    X11 variant\n\
+			decred      Decred Blake256\n\
+			deep        Deepcoin\n\
+			verus       Veruscoin\n\
+			dmd-gr      Diamond-Groestl\n\
+			fresh       Freshcoin (shavite 80)\n\
+			fugue256    Fuguecoin\n\
+			graft       Cryptonight v8\n\
+			groestl     Groestlcoin\n"
 #ifdef WITH_HEAVY_ALGO
-""
+"			heavy       Heavycoin\n"
 #endif
-" -d, --devices         Comma separated list of CUDA devices to use.\n\
+"			hmq1725     Doubloons / Espers\n\
+			jackpot     JHA v8\n\
+			keccak      Deprecated Keccak-256\n\
+			keccakc     Keccak-256 (CreativeCoin)\n\
+			lbry        LBRY Credits (Sha/Ripemd)\n\
+			luffa       Joincoin\n\
+			lyra2       CryptoCoin\n\
+			lyra2v2     VertCoin\n\
+			lyra2z      ZeroCoin (3rd impl)\n\
+			myr-gr      Myriad-Groestl\n\
+			monero      XMR cryptonight (v7)\n\
+			neoscrypt   FeatherCoin, Phoenix, UFO...\n\
+			nist5       NIST5 (TalkCoin)\n\
+			penta       Pentablake hash (5x Blake 512)\n\
+			phi1612     LUX initial algo, for Seraph\n\
+			phi2        LUX v2 with lyra2\n\
+			polytimos   Politimos\n\
+			quark       Quark\n\
+			qubit       Qubit\n\
+			sha256d     SHA256d (bitcoin)\n\
+			sha256t     SHA256 x3\n\
+			sia         SIA (Blake2B)\n\
+			sib         Sibcoin (X11+Streebog)\n\
+			scrypt      Scrypt\n\
+			scrypt-jane Scrypt-jane Chacha\n\
+			skein       Skein SHA2 (Skeincoin)\n\
+			skein2      Double Skein (Woodcoin)\n\
+			skunk       Skein Cube Fugue Streebog\n\
+			sonoa       97 hashes based on X17 ones (Sono)\n\
+			stellite    Cryptonight v3\n\
+			s3          S3 (1Coin)\n\
+			timetravel  Machinecoin permuted x8\n\
+			tribus      Denarius\n\
+			vanilla     Blake256-8 (VNL)\n\
+			veltor      Thorsriddle streebog\n\
+			whirlcoin   Old Whirlcoin (Whirlpool algo)\n\
+			whirlpool   Whirlpool algo\n\
+			x11evo      Permuted x11 (Revolver)\n\
+			x11         X11 (DarkCoin)\n\
+			x12         X12 (GalaxyCash)\n\
+			x13         X13 (MaruCoin)\n\
+			x14         X14\n\
+			x15         X15\n\
+			x16r        X16R (Raven)\n\
+			x16s        X16S\n\
+			x17         X17\n\
+			wildkeccak  Boolberry\n\
+			zr5         ZR5 (ZiftrCoin)\n\
+  -d, --devices         Comma separated list of CUDA devices to use.\n\
                         Device IDs start counting from 0! Alternatively takes\n\
                         string names of your cards like gtx780ti or gt640#2\n\
                         (matching 2nd gt640 in the PC)\n\
@@ -782,9 +842,9 @@ static bool work_decode(const json_t *val, struct work *work)
 	return true;
 }
 
-#define YES "ดี!"
-#define YAY "ดีมาก!!!"
-#define BOO "แย่"
+#define YES "yes!"
+#define YAY "yay!!!"
+#define BOO "booooo"
 
 int share_result(int result, int pooln, double sharediff, const char *reason)
 {
@@ -824,17 +884,17 @@ int share_result(int result, int pooln, double sharediff, const char *reason)
 		flag = use_colors ?
 			(result ? CL_GRN YAY : CL_RED BOO)
 		:	(result ? "(" YAY ")" : "(" BOO ")");
-		sprintf(solved, " แก้ไขแล้ว: %u", p->solved_count);
+		sprintf(solved, " solved: %u", p->solved_count);
 	}
 
-	applog(LOG_NOTICE, "ได้รับการยอมรับ: %lu/%lu (%s), %s %s%s",
+	applog(LOG_NOTICE, "accepted: %lu/%lu (%s), %s %s%s",
 			p->accepted_count,
 			p->accepted_count + p->rejected_count,
 			suppl, s, flag, solved);
 	if (reason) {
-		applog(LOG_WARNING, "ถูกปฏิเสธ: %s", reason);
-		if (!check_dups && strncasecmp(reason, "ซ้ำซ้อน", 9) == 0) {
-			applog(LOG_WARNING, "เปิดใช้งานคุณสมบัติตรวจสอบซ้ำ");
+		applog(LOG_WARNING, "reject reason: %s", reason);
+		if (!check_dups && strncasecmp(reason, "duplicate", 9) == 0) {
+			applog(LOG_WARNING, "enabling duplicates check feature");
 			check_dups = true;
 			g_work_time = 0;
 		}
@@ -871,10 +931,10 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 			stale_work = strncmp(work->job_id + 8, g_work.job_id + 8, sizeof(g_work.job_id) - 8);
 		if (stale_work) {
 			pool->stales_count++;
-			if (opt_debug) applog(LOG_DEBUG, "งานเก่า%s, new %s stales=%d",
+			if (opt_debug) applog(LOG_DEBUG, "outdated job %s, new %s stales=%d",
 				work->job_id + 8 , g_work.job_id + 8, pool->stales_count);
 			if (!check_stratum_jobs && pool->stales_count > 5) {
-				if (!opt_quiet) applog(LOG_WARNING, "เปิดใช้งานวิธีแก้ปัญหางาน stratum ที่เก่าแล้ว");
+				if (!opt_quiet) applog(LOG_WARNING, "Enabled stratum stale jobs workaround");
 				check_stratum_jobs = true;
 			}
 		}
@@ -2730,7 +2790,7 @@ wait_stratum_url:
 
 		if (!stratum_socket_full(&stratum, opt_timeout)) {
 			if (opt_debug)
-				applog(LOG_WARNING, "หมดเวลาการเชื่อมต่อ");
+				applog(LOG_WARNING, "Stratum connection timed out");
 			s = NULL;
 		} else
 			s = stratum_recv_line(&stratum);
@@ -3612,24 +3672,21 @@ int main(int argc, char *argv[])
 	long flags;
 	int i;
 
-
-
-
-
-
-
-
-
-
-
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);
-    system("clear");
+
+	system("clear");
+	usleep(1000);
 	printf("#####  ##   ## ##    ## ##    ## ## ##    ##       #######  ###### ##   ##\n");
+	usleep(1000);
 	printf("##  ## ##   ## ##    ## ###  ### ## ###   ##       ##    ## ##     ##   ##\n");
+	usleep(1000);
 	printf("#####  ####### ##    ## ## ## ## ## ## #  ##  ###  ##    ## ###### ##   ##\n");
+	usleep(1000);
 	printf("##     ##   ## ##    ## ##    ## ## ##  # ##       ##    ## ##      ## ## \n");
+	usleep(1000);
 	printf("##     ##   ##  ######  ##    ## ## ##   ###       #######  ######   ###  \n");
+	usleep(1000);
 	
 	printf("\n[ Mobile Mining CPU:" PACKAGE_VERSION " By: Phumin-dev Original: Ccminer ]\n\n");
 
