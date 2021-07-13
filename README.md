@@ -1,4 +1,4 @@
-# ChatBot_Facebook_Page
+# Chatbot_Facebook
 แชทบอทนี้สร้างขึ้นมาเพื่อใช้งานในเพจ [Nutder ร้านขายเสื้อผ้ามือสอง](https://web.facebook.com/nutderTH/) <br> 
 ใช้ในการโต้ตอบกับข้อความของแอดมิน หรือระบบบอทอื่นๆ เพื่อเพิ่มFunctionการใช้งาน <br>
 ที่บอทสำเส็จรูปไม่มี <br>
