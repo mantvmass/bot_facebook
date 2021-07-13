@@ -1,14 +1,3 @@
-'''
-แชทบอทนี้สร้างขึ้นมาเพื่อใช้งานในเพจ Nutder ร้านขายเสื้อผ้ามือสอง 
-ใช้ในการโต้ตอบกับข้อความของแอดมิน หรือระบบบอทอื่นๆ เพื่อเพิ่มFunction การใช้งานที่บอทสำเส็จรูปไม่มี
-
-สร้างโดยนาย Phumin Maliwan
-Facebook: https://www.facebook.com/PhuminMaliwan
-สามารถนำไปพัฒนาต่อยอดได้
-ใช้รวมกับ Facebook Developers 
-ใช้ ngrok ในการทำให้ localhost online
-'''
-
 from flask import Flask, request
 from pymessenger.bot import Bot
 import time
